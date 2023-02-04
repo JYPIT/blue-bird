@@ -21,12 +21,12 @@ export async function getAll() {
   return tweets;
 }
 
-export async function getByUsername(username) {
-  return tweets.filter((tweet) => tweet.username);
+export async function getAllByUsername(username) {
+  return tweets.filter((tweet) => tweet.username === username);
 }
 
 export async function getById(id) {
-  return tweets.filter((tweet) => tweet.id);
+  return tweets.find((tweet) => tweet.id === id);
 }
 
 export async function create(text, name, username) {
@@ -43,12 +43,12 @@ export async function create(text, name, username) {
 
 export async function update(id, text) {
   const tweet = tweets.find((tweet) => tweet.id === id);
-  tweet.text = text;
-
+  if (tweet) {
+    tweet.text = text;
+  }
   return tweet;
 }
 
 export async function remove(id) {
-  const tweet = tweets.filter((tweet) => tweet.id !== id);
-  return tweet;
+  tweets = tweets.filter((tweet) => tweet.id !== id);
 }
