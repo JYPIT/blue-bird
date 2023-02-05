@@ -4,7 +4,7 @@ const Header = memo(({ username, onLogout, onMyTweets, onAllTweets }) => {
   return (
     <header className='header'>
       <div className='logo'>
-        <img src='./img/logo.png' alt='Blue Bird Logo' className='logo-img' />
+        <img src='./img/logo.png' alt='Dwitter Logo' className='logo-img' />
         <h1 className='logo-name'>Blue Bird</h1>
         {username && <span className='logo-user'>@{username}</span>}
       </div>
