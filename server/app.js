@@ -6,12 +6,15 @@ import helmet from 'helmet';
 import authRouter from './router/auth.js';
 import tweetsRouter from './router/tweets.js';
 import { config } from './config.js';
-import { Server } from 'socket.io';
-import { db } from './db/database.js';
 
-const PORT = config.host.port;
+const PORT = config.port;
 
 const app = express();
+
+const corsOption = {
+  origin: config.cors.allowedOrigin,
+  optionsSuccessStatus: 200,
+};
 
 app.use(express.json());
 app.use(helmet());
